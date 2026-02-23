@@ -1,0 +1,19 @@
+ALTER TABLE users
+    ADD COLUMN password VARCHAR(60) NOT NULL,
+    ADD COLUMN date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+CREATE TABLE roles (
+    id BIGSERIAL PRIMARY KEY,
+    role_name VARCHAR(50) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE user_roles (
+    user_id BIGINT NOT NULL,
+    role_id BIGINT NOT NULL,
+    CONSTRAINT pk_user_roles PRIMARY KEY (user_id, role_id),
+    CONSTRAINT fk_user_roles_user FOREIGN KEY (user_id)
+        REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_user_roles_role FOREIGN KEY (role_id)
+        REFERENCES roles(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
