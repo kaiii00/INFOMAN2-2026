@@ -30,7 +30,7 @@ db.posts.insertOne({
 ```
 
 Screenshot(s):
-- ![](images/setup.PNG)
+- ![](images/setup.png)
 
 ### 2.2 Create
 
@@ -48,7 +48,7 @@ db.posts.insertOne({
 ```
 
 Screenshot(s):
-- ![](images/create.PNG)
+- ![](images/create.png)
 
 ### 2.3 Read
 
@@ -67,9 +67,9 @@ db.posts.find({}, { title: 1, author_username: 1, _id: 0 })
 ```
 
 Screenshot(s):
-- ![](images/findAllPosts.PNG)
-- ![](images/resultFor_id1.PNG)
-- ![](images/titleAndAuthor_Username.PNG)
+- ![](images/findAllPosts.png)
+- ![](images/resultFor_id1.png)
+- ![](images/titleAndAuthor_Username.png)
 
 ### 2.4 Update
 
@@ -88,9 +88,9 @@ db.posts.updateMany({}, { $set: { status: "published" } })
 ```
 
 Screenshot(s):
-- ![](images/changeTitleOf_id1.PNG)
-- ![](images/IncreaseViewsBy1.PNG)
-- ![](images/addStatusToAllPosts.PNG)
+- ![](images/changeTitleOf_id1.png)
+- ![](images/IncreaseViewsBy1.png)
+- ![](images/addStatusToAllPosts.png)
 
 ### 2.5 Delete
 
@@ -101,7 +101,7 @@ db.posts.deleteOne({ _id: 2 })
 ```
 
 Screenshot(s):
-- ![](images/delete_Id2.PNG)
+- ![](images/delete_Id2.png)
 
 ## Part 3: Reflection (3-4 sentences)
 
