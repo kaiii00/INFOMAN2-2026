@@ -1,4 +1,5 @@
-//TASK 1: Find all vehicles that are currently "In Transit" and have a fuel level below 50%. Return the VIN, type, and fuel level of these vehicles.
+// Task 1: Emergency Fuel Report
+// Find all vehicles "In Transit" with fuelLevel below 50%
 db.vehicles.aggregate([
   {
     $match: {
@@ -16,7 +17,8 @@ db.vehicles.aggregate([
   }
 ]);
 
-//TASK 2: Identify all vehicles that are currently under "Maintenance" and have active alerts. Return the VIN, list of active alerts, and the date of the last service for these vehicles, sorted by the last service date in ascending order.
+// Task 2: Maintenance Prioritization
+// Find vehicles in Maintenance, rename activeAlerts to issues, sort oldest first
 db.vehicles.aggregate([
   {
     $match: {
@@ -38,7 +40,8 @@ db.vehicles.aggregate([
   }
 ]);
 
-//TASK 3: Retrieve the VIN, longitude, and latitude of all electric vehicles. The location is stored as a GeoJSON point in the "location" field, where "coordinates" is an array with longitude at index 0 and latitude at index 1.
+// Task 3: Electric Fleet Geo-Audit
+// Find all electric vehicles and extract lon/lat from coordinates array
 db.vehicles.aggregate([
   {
     $match: {
@@ -55,7 +58,8 @@ db.vehicles.aggregate([
   }
 ]);
 
-//TASK 4: Find the top 3 semi-trucks with the highest number of active alerts. Return the VIN, the count of active alerts, and a boolean indicating whether the truck needs urgent refueling (fuel level below 20%).
+// Task 4: High-Risk Truck Report
+// Find top 3 Semi-Trucks by alert count with urgent refuel flag
 db.vehicles.aggregate([
   {
     $match: {
